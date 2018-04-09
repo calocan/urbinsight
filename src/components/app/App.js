@@ -13,6 +13,7 @@ import {theme} from 'styles/styles';
 import {withRouter} from 'react-router';
 import {Grid as grid} from 'components/atoms';
 import {applyMatchingStyles, mergeAndApplyMatchingStyles} from 'selectors/styleSelectors';
+import 'mapbox-gl/dist/mapbox-gl.css'
 
 const [Provider, Div, Header, Switch, Route, Grid] = eMap([provider, 'div', header, switchy, route, grid]);
 

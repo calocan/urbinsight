@@ -15,7 +15,7 @@ import configureStore from 'redux-mock-store';
 
 import {sampleConfig} from 'data/samples/sampleConfig';
 import initialState from 'data/initialState'
-import {reqPath} from 'rescape-ramda'.throwing;
+import {reqPathThrowing} from 'rescape-ramda'
 
 const middlewares = [thunk];
 const mockStore = configureStore(middlewares);

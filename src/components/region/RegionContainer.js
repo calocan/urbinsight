@@ -1,6 +1,6 @@
 import {connect} from 'react-redux';
 import {makeMergeDefaultStyleWithProps} from 'selectors/styleSelectors';
-import {gql} from 'apollo-client-preset';
+import {gql} from 'apollo-boost'
 import {graphql} from 'react-apollo';
 import {makeApolloTestPropsFunction} from 'helpers/componentHelpers';
 import {mergeDeep, throwing} from 'rescape-ramda';

@@ -11,9 +11,9 @@
 
 import {geojsonByType} from './geojsonHelpers';
 jest.mock('query-overpass');
-import osm from 'async/queryOverpass.sample'.LA_SAMPLE;
+import osm from 'async/queryOverpass.sample'
 describe('geojsonHelpers', () => {
   test('geojsonByType', () => {
-    expect(geojsonByType(osm)).toMatchSnapshot();
+    expect(geojsonByType(osm.LA_SAMPLE)).toMatchSnapshot();
   });
 });

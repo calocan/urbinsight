@@ -19,7 +19,7 @@ import {asyncActionCreators} from 'redux/actionHelpers';
 import Task from 'data.task';
 import thunk from 'redux-thunk'
 import {LA_BOUNDS} from 'async/queryOverpass.sample';
-import {makeSampleStore} from 'helpers/testHelpers');
+import {makeSampleStore} from 'helpers/testHelpers';
 
 const middlewares = [ thunk ];
 const mockStore = configureMockStore(middlewares);

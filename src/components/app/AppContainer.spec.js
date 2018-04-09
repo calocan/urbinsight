@@ -2,7 +2,7 @@ import appContainer, {testPropsMaker, queries} from 'components/app/AppContainer
 import {eMap} from 'helpers/componentHelpers';
 import * as R from 'ramda';
 import {c} from 'components/app/App';
-import {gql} from 'apollo-client-preset';
+import {gql} from 'apollo-boost'
 import {apolloContainerTests} from 'helpers/apolloContainerTestHelpers';
 import {MemoryRouter as memoryRouter} from 'react-router-dom'
 

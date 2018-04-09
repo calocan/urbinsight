@@ -134,12 +134,16 @@ SankeyNodeLegend.viewProps = props => {
   return {
     [c.sankeyNodeLegend]: {},
     [c.sankeyNodeLegendTitle]: {
+      key: c.sankeyNodeLegendTitle,
       children: 'Stages',
       fontSize: '12px',
       fontWeight: 'bold'
     },
-    [c.sankeyNodeLegendBox]: {},
+    [c.sankeyNodeLegendBox]: {
+      key: c.sankeyNodeLegendBox
+    },
     [c.sankeyNodeLegendItems]: {
+      key: c.sankeyNodeLegendItems,
       items: reqStrPath('items', props)
     },
     [c.sankeyNodeLegendItem]: {
@@ -147,8 +151,10 @@ SankeyNodeLegend.viewProps = props => {
       key: R.always(reqStrPath('key'))
     },
     [c.sankeyNodeLegendIcon]: {
+      key: c.sankeyNodeLegendIcon
     },
     [c.sankeyNodeLegendText]: {
+      key: c.sankeyNodeLegendText,
       children: R.always(reqStrPath('name'))
     }
   };

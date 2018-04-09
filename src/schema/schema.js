@@ -131,6 +131,7 @@ const SankeyNodeType = new GraphQLObjectType({
     'junctionStage': {type: GraphQLString},
     'annualTonnage': {type: GraphQLString},
     index: {type: GraphQLInt},
+    value: {type: GraphQLFloat},
     material: {type: GraphQLString},
     type: {type: GraphQLString},
     geometry: { type: geojson.GeometryInterface }

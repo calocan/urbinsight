@@ -21,7 +21,7 @@ import {mergeDeep, throwing} from 'rescape-ramda';
 import Mapbox from './Mapbox';
 import * as R from 'ramda';
 import {graphql} from 'react-apollo';
-import {gql} from 'apollo-client-preset';
+import {gql} from 'apollo-boost'
 
 /**
  * Selects the current user from state

@@ -8,7 +8,7 @@ import {
 import MainContainer, {testPropsMaker, queries} from 'components/main/MainContainer';
 import {eMap} from 'helpers/componentHelpers';
 import {createWaitForElement} from 'enzyme-wait';
-import {gql} from 'apollo-client-preset';
+import {gql} from 'apollo-boost'
 
 describe('MainContainer', () => {
   const parentProps = {

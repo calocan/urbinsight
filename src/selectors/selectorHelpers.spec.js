@@ -13,6 +13,7 @@ import * as R from 'ramda';
 import { mergeStateAndProps, makeInnerJoinByLensThenFilterSelector, findOneValueByParams }
   from './selectorHelpers';
 import {asUnaryMemoize} from 'selectors/selectorHelpers';
+import NamedTupleMap from 'namedtuplemap';
 
 describe('reselectHelpers', () => {
 

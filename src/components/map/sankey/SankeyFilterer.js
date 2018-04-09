@@ -82,7 +82,7 @@ const SankeyFiltererItem = (views) => {
   const props = R.prop(R.__, views);
   const checkboxProps = props(c.sankeyFiltererCheckbox)
   return Group(props(c.sankeyFiltererItem), [
-    Checkbox(R.merge(checkboxProps, {onChange: e => checkboxProps.onSankeyFilterChange(e.target.name, R.equals('on', e.target.value))})),
+    Checkbox(R.merge(checkboxProps, {onChange: e => checkboxProps.onSankeyFilterChange(e.target.name, e.target.checked)})),
     Grid(props(c.sankeyFiltererText))
   ]);
 };

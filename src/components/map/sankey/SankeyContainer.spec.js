@@ -8,7 +8,7 @@ import * as R from 'ramda';
 import Current, {c as cCurrent} from 'components/current/Current';
 import Region, {c as cRegion} from 'components/region/Region';
 import Sankey, {c} from 'components/map/sankey/Sankey';
-import {gql} from 'apollo-client-preset';
+import {gql} from 'apollo-boost'
 import {apolloContainerTests} from 'helpers/apolloContainerTestHelpers';
 
 // Test this container

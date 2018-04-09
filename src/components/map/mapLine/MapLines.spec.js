@@ -14,7 +14,7 @@ import {shallow} from 'enzyme';
 import MapLines from './MapLines'
 
 jest.mock('query-overpass');
-import geojson from 'queryOverpassResponse'.LA_SAMPLE;
+import geojson from 'queryOverpassResponse';
 const e = React.createElement;
 
 describe('MapLines', () => {
@@ -30,7 +30,7 @@ describe('MapLines', () => {
             width: 500,
             zoom: 5
         },
-        geojson: geojson
+        geojson: geojson.LA_SAMPLE
     };
     it('MapLines can mount', () => {
         const wrapper = shallow(e(MapLines, props));

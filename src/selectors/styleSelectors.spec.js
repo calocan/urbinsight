@@ -17,6 +17,7 @@ import {
 import {makeMergeDefaultStyleWithProps} from 'selectors/styleSelectors';
 import * as R from 'ramda';
 import {styleMultiplier} from 'helpers/styleHelpers';
+import {c} from 'components/map/sankey/SankeyLinkLegend'
 
 describe('styleSelectors', () => {
   test('makeMergeDefaultStyleWithProps', () => {

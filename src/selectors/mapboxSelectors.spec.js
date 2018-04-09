@@ -11,9 +11,9 @@
 
 import {mapboxSelector, viewportSelector} from 'selectors/mapboxSelectors';
 import {throwing} from 'rescape-ramda';
+import * as R from 'ramda';
 
 const {reqPath} = throwing;
-import * as R from 'ramda';
 
 describe('mapboxSelectors', () => {
   const oakland = {

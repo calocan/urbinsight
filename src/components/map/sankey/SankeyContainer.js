@@ -21,8 +21,9 @@ import {mergeDeep, throwing} from 'rescape-ramda';
 import Sankey from './Sankey';
 import * as R from 'ramda';
 import {graphql} from 'react-apollo';
-import {gql} from 'apollo-client-preset';
+import {gql} from 'apollo-boost'
 import {activeUserSelectedRegionSelector} from 'selectors/userSelectors';
+import {sankeyGraphSelector} from 'selectors/geojsonSelectors';
 
 const {reqStrPath} = throwing;
 
@@ -77,11 +78,6 @@ export const mapDispatchToProps = (dispatch, ownProps) => {
         )
       );
     }
-    /*
-    onSankeyFilterChange: e => {
-      return e;
-    }
-    */
     //hoverMarker,
     //selectMarker
   }, dispatch);
@@ -126,6 +122,7 @@ const geojsonQuery = `
                               material
                               isGeneralized
                               type
+                              value
                               geometry {
                                 type
                                 coordinates
@@ -170,34 +167,16 @@ export const queries = {
         errorPolicy: 'none'
       }),
       props: ({data, ownProps}) => {
-        let filteredData = data;
-        if (data.store) {
-          const userRegion = R.find(R.eqProps('id', ownProps.data.region), ownProps.data.user.regions);
-          const selectedSankeyNodeCategories =
-            R.filter(
-              R.identity,
-              R.defaultTo({}, R.view(R.lensPath(['geojson', 'sankey', 'selected']), userRegion)));
+        const filteredGraph = data.store ?
+          sankeyGraphSelector(null, {store: data.store, user: ownProps.data.user, region: ownProps.data.region}) :
+          null;
 
-          filteredData = R.length(selectedSankeyNodeCategories) ?
-            R.over(
-              R.lensPath(['store', 'region', 'geojson', 'sankey', 'graph', 'nodes']),
-              nodes => R.map(node => R.merge(
-                node,
-                {
-                  isVisible: R.or(
-                    // Not there
-                    R.compose(R.isNil, R.prop(node.material))(selectedSankeyNodeCategories),
-                    // There and true
-                    R.contains(node.material, R.keys(selectedSankeyNodeCategories))
-                  )
-                }
-              ), nodes || []),
-              data
-            ) : data;
-        }
         return mergeDeep(
           ownProps,
-          {data: filteredData}
+          {
+            data: data,
+            graph: filteredGraph
+          }
         );
       }
     }

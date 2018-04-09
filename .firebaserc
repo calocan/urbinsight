@@ -1,0 +1,6 @@
+{
+  "projects": {
+    "production": "urbinsight",
+    "default": "rescape-urbinsight"
+  }
+}

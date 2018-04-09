@@ -3,7 +3,7 @@ import current from './Main'
 import {sampleConfig} from 'data/samples/sampleConfig';
 import initialState from 'data/initialState'
 import * as R from 'ramda';
-import {reqPath} from 'rescape-ramda'.throwing;
+import {reqPathThrowing} from 'rescape-ramda'
 import {eMap} from 'helpers/componentHelpers';
 import {mapStateToProps} from './MainContainer';
 import {propsFromSampleStateAndContainer, shallowWrap} from 'helpers/testHelpers';

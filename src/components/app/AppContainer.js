@@ -1,4 +1,4 @@
-import {gql} from 'apollo-client-preset';
+import {gql} from 'apollo-boost'
 import {graphql} from 'react-apollo';
 import {connect} from 'react-redux';
 import App from 'components/app/App';

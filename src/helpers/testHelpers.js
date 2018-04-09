@@ -16,16 +16,16 @@ import initialState from 'data/initialState';
 import configureStore from 'redux-mock-store';
 import thunk from 'redux-thunk';
 import {shallow, mount} from 'enzyme';
-import {mockNetworkInterfaceWithSchema} from 'apollo-test-utils';
-import ApolloClient from 'apollo-client';
+import {mockNetworkInterfaceWithSchema} from 'apollo-boost'
+import ApolloClient from 'apollo-boost'
 import makeSchema from 'schema/schema';
 import {createSelectorResolvedSchema} from 'schema/selectorResolvers';
-import {InMemoryCache} from 'apollo-client-preset';
-import {SchemaLink} from 'apollo-link-schema';
+import {InMemoryCache} from 'apollo-boost'
+import {SchemaLink} from 'apollo-boost'
 import PropTypes from 'prop-types';
 import {createWaitForElement} from 'enzyme-wait';
 import {getClass} from 'helpers/styleHelpers';
-import {onError} from "apollo-link-error";
+import {onError} from 'apollo-boost'
 import prettyFormat from 'pretty-format';
 const sampleConfig = getCurrentConfig()
 

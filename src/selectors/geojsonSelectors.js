@@ -12,8 +12,9 @@
 import {createSelector} from 'reselect';
 import * as R from 'ramda';
 import {geojsonByType} from 'helpers/geojsonHelpers';
-import {mergeDeep, throwing} from 'rescape-ramda'
-const {reqPath} = throwing
+import {mergeDeep, throwing} from 'rescape-ramda';
+
+const {reqPath} = throwing;
 
 /**
  * Resolves the openstreetmap features of a region and categorizes them by type (way, node, relation).
@@ -62,3 +63,31 @@ export const makeGeojsonSelector = () => (state, {region}) => createSelector(
         }
       })
 )(state, {region});
+
+export const sankeyGraphSelector = (_, {store, user, region}) => {
+  const graph = reqPath(['region', 'geojson', 'sankey', 'graph'], store);
+  const userRegion = R.find(R.eqProps('id', region), user.regions);
+  const selectedSankeyNodeCategories = R.defaultTo(
+    {},
+    R.view(R.lensPath(['geojson', 'sankey', 'selected']),
+      userRegion
+    )
+  );
+
+  return R.length(R.keys(selectedSankeyNodeCategories)) ?
+    R.over(
+      R.lensProp('nodes'),
+      nodes => R.map(node => R.merge(
+        node,
+        {
+          isVisible: R.or(
+            // Not there
+            R.compose(R.isNil, R.prop(node.material))(selectedSankeyNodeCategories),
+            // There and true
+            R.prop(node.material, selectedSankeyNodeCategories)
+          )
+        }
+      ), nodes || []),
+      graph
+    ) : graph;
+};

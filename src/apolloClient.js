@@ -8,13 +8,13 @@
  *
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-import {ApolloClient} from 'apollo-client';
-import {InMemoryCache} from 'apollo-cache-inmemory';
-import {getMainDefinition} from 'apollo-utilities';
-import {ApolloLink, split} from 'apollo-client-preset';
-import {WebSocketLink} from 'apollo-link-ws';
+import {ApolloClient} from 'apollo-boost'
+import {InMemoryCache} from 'apollo-boost'
+import {getMainDefinition} from 'apollo-boost'
+import {ApolloLink, split} from 'apollo-boost'
+import {WebSocketLink} from 'apollo-boost'
 import fetch from 'node-fetch';
-import {createHttpLink} from 'apollo-link-http';
+import {createHttpLink} from 'apollo-boost'
 import config from './config';
 const {settings: {graphcool: {authTokenKey, serviceIdKey}}} = config;
 

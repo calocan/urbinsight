@@ -5,7 +5,7 @@ import {makeActiveUserRegionsAndSettingsSelector} from 'selectors/storeSelectors
 import {makeBrowserProportionalDimensionsSelector, makeMergeDefaultStyleWithProps} from 'selectors/styleSelectors';
 import {loadingCompleteStatus, makeApolloTestPropsFunction} from 'helpers/componentHelpers';
 import Main from 'components/main/Main';
-import {gql} from 'apollo-client-preset';
+import {gql} from 'apollo-boost'
 import {createSelector} from 'reselect';
 import {bindActionCreators} from 'redux';
 import {mergeDeep} from 'rescape-ramda';
